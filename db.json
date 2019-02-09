@@ -100,5 +100,73 @@
             "houseLoan":70
          }
       }
+   ],
+   {
+   "transactions":[
+      {
+         "accountId":12345,
+         "records":[
+            {
+               "sNo":1,
+               "category":"travel",
+               "date":"13-Feb-2018",
+               "remarks":"Bus Fare to Nellore",
+               "type":"expense",
+               "amount":4000,
+               "source":"ICICI Bank"
+            },
+            {
+               "sNo":2,
+               "category":"travel",
+               "date":"14-Feb-2018",
+               "remarks":"Groceries",
+               "type":"expense",
+               "amount":5000,
+               "source":"ICICI Bank"
+            },
+            {
+               "sNo":3,
+               "category":"travel",
+               "date":"15-Feb-2018",
+               "remarks":"Salary credited",
+               "type":"income",
+               "amount":50000,
+               "source":"ICICI Bank"
+            }
+         ]
+      },
+      {
+         "accountId":12346,
+         "records":[
+            {
+               "sNo":1,
+               "category":"travel",
+               "date":"13-Feb-2018",
+               "remarks":"Bus Fare to Nellore",
+               "type":"expense",
+               "amount":4000,
+               "source":"ICICI Bank"
+            },
+            {
+               "sNo":2,
+               "category":"travel",
+               "date":"14-Feb-2018",
+               "remarks":"Groceries",
+               "type":"expense",
+               "amount":5000,
+               "source":"ICICI Bank"
+            },
+            {
+               "sNo":3,
+               "category":"travel",
+               "date":"15-Feb-2018",
+               "remarks":"Salary credited",
+               "type":"income",
+               "amount":50000,
+               "source":"ICICI Bank"
+            }
+         ]
+      }
    ]
+}
 }
