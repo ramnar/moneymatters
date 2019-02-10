@@ -2,4 +2,5 @@ deploy:
   provider: s3
   access_key_id: "AKIAICP7BJFBKK3QPANQ"
   secret_access_key: "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"
-  bucket: "https://s3.ap-south-1.amazonaws.com/ramnar"
+  bucket: "ramnar"
+  region: ap-south-1
