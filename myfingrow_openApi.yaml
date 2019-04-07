@@ -1,0 +1,155 @@
+    openapi: 3.0.0
+    info:
+      title: Myfingrow API Definition
+      description: Open API Specification based REST API definition for myfingrow Application.
+      version: 0.0.1
+    servers:
+      - url: http://prototype-api.myfingrow.com
+        description: API implementation for the prototype.
+    components:
+      schemas:
+        User: 
+          type: object
+          properties: 
+            email: 
+              type: string
+            name: 
+              type: string
+            lastLogin: 
+              type: string
+            newUser: 
+              type: boolean
+        ExpenseSummary:
+          type: object
+          properties:
+            currentMonth:
+              type: string
+            currentYear: 
+              type: string
+            totalMonthlyExpense:
+              type: string
+            forcastMonthlyExpense:
+              type: string
+        Expense:
+          type: object
+          properties:
+            expenseType:
+              type: string
+            amount:
+              type: string
+            expenseDate: 
+              type: string
+            comment:
+              type: string
+    paths:
+      /user/{emailId}:
+        get:
+          summary: Returns user information
+          description: user information by email id
+          operationId: getUserByEmailId
+          responses:
+            '200':    # status code
+              description: A JSON object of user information.
+              content:
+                '*/*':
+                  schema: 
+                    $ref: '#/components/schemas/User'
+        parameters:
+        - in: path
+          name: emailId
+          description: emailId for the user
+          required: true
+          schema:
+              type: string
+        - in: header
+          name: x-auth-token
+          schema: 
+            type: string
+          required: true
+      /user/{emailId}/expenseSummary:
+        get:
+          summary: Returns a users expense summary
+          description: User's expense summary details 
+          operationId: getExpenseSummaryByEmailId
+          responses: 
+            '200':
+              description: A JSON object of user expense summary information
+              content:
+                '*/*':
+                  schema:
+                    $ref: '#/components/schemas/ExpenseSummary'
+          parameters:
+          - in: path
+            name: emailId
+            description: emailId for the user
+            required: true
+            schema:
+              type: string
+          - in: header
+            name: x-auth-token
+            schema: 
+              type: string
+            required: true
+      /user/{emailId}/expense:
+        post:
+          summary: Add and expense for the user
+          description: this api is adding an expense information to the user
+          operationId: saveExpense
+          responses:
+            '200': 
+              description: expenses saved successfully
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties: 
+                      saved:
+                        type: boolean
+                        description: was the expense saved successfully
+          parameters:
+          - in: path
+            name: emailId
+            description: emailId for the user
+            required: true
+            schema:
+              type: string
+          - in: header
+            name: x-auth-token
+            schema: 
+              type: string
+            required: true
+      /user/{emailId}/expenses/{monthAndYear}:
+        get:
+          summary: Retrieve the list of expenses for the month and year
+          description: list of the expenses for a month and year
+          operationId: getMonthYearExpenses
+          responses:
+            '200':
+              description: list of expenses
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Expense'
+          parameters: 
+          - in: path
+            name: emailId
+            description: emailid for the user
+            required: true
+            schema:
+              type: string
+          - in: header
+            name: x-auth-token
+            schema:
+              type: string
+            required: true
+          - in: path
+            name: monthAndYear
+            description: month and year for the expenses
+            required: true
+            schema:
+              type: string
+              example: MMYYYY 012019 112019
+                
+              
