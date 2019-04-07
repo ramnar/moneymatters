@@ -170,6 +170,7 @@
    "financialSummary" : {
       "savings": 12000.00,
       "creditcardBalance": 1200,
-      "investments": 1234560
+      "investments": 1234560,
+      "expenses" : 23456.00
    }
 }
